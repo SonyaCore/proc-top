@@ -4,6 +4,7 @@ import (
 	"fmt"
 	cpu "proc-top/src/cpu"
 	disk "proc-top/src/disk"
+	"proc-top/src/host"
 	memory "proc-top/src/memory"
 	"proc-top/utils"
 	"runtime"
@@ -36,6 +37,9 @@ func main() {
 		utils.CallClear()
 		fmt.Println(banner())
 		memory.Memory()
+		// proc.Proc()
+		host.KernelInfo()
+		host.Sensors()
 		cpu.Cpu()
 		disk.Disk()
 		time.Sleep(1 * time.Second)
