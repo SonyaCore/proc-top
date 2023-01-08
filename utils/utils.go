@@ -67,8 +67,8 @@ func init() {
 func CallClear() {
 	value, ok := clear[runtime.GOOS] //runtime.GOOS -> linux, windows, darwin etc.
 	if ok {
-		value() //we execute it
-	} else { //unsupported platform
+		value() // exec clear cmd
+	} else { // unsupported platform
 		panic("unsupported platform !")
 	}
 }

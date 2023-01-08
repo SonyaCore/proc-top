@@ -2,6 +2,7 @@ package proc
 
 import (
 	"fmt"
+	"log"
 	"proc-top/colors"
 
 	"github.com/shirou/gopsutil/v3/process"
@@ -14,6 +15,9 @@ var (
 )
 
 func Proc() {
-	proc, _ := process.Processes()
+	proc, err := process.Processes()
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println(g, proc, r)
 }

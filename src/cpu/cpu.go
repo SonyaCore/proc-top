@@ -2,6 +2,7 @@ package cpu
 
 import (
 	"fmt"
+	"log"
 	"proc-top/colors"
 
 	"github.com/shirou/gopsutil/v3/cpu"
@@ -14,7 +15,12 @@ var (
 )
 
 func Cpu() {
-	cpuinfo, _ := cpu.Info()
+	cpuinfo, err := cpu.Info()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	cpudict := cpuinfo[0]
 
 	fmt.Println(p, "*CPU INFO*", r)
