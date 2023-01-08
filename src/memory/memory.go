@@ -20,6 +20,6 @@ func Memory() {
 	// almost every return value is a struct
 	fmt.Println(p, "MEMORY", r)
 	fmt.Printf("Total: %v%v%v\nFree: %v%v%v\nUsedPercent: %v%f%%%v\n",
-		g, utils.ConvByte(float64(v.Total)), r, g, utils.ConvByte(float64(v.Free)), r, g, v.UsedPercent, r)
+		g, utils.ConvByte(float64(v.Total)), r, g, utils.ConvByte(float64(v.Available)), r, g, v.UsedPercent, r)
 
 }
