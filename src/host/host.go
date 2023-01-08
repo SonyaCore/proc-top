@@ -28,8 +28,8 @@ func KernelInfo() {
 	} else {
 		time = strconv.FormatUint(utime, 10)
 	}
-	fmt.Println(p, "KERNEL", r)
-	fmt.Printf("%v\n%v\n%v\n%v\n", g+platfrom+r, g+kversion+r, g+karch+r, g+time+r)
+	fmt.Println(p, "*KERNEL*", r)
+	fmt.Printf("%v\n%v\n%v\n%v\n", "Platform :"+g+platfrom+r, "Version : "+g+kversion+r, "Arch :"+g+karch+r, "Uptime : "+g+time+r)
 }
 
 func Sensors() {
@@ -39,7 +39,7 @@ func Sensors() {
 	}
 	statdict := stat[0]
 
-	fmt.Println(p, "SENSORS", r)
+	fmt.Println(p, "*SENSORS*", r)
 	fmt.Printf("%v", statdict.String())
 	fmt.Printf("%v\n", statdict.SensorKey)
 }

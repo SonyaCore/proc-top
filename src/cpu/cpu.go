@@ -17,6 +17,6 @@ func Cpu() {
 	cpuinfo, _ := cpu.Info()
 	cpudict := cpuinfo[0]
 
-	fmt.Println(p, "CPU INFO", r)
+	fmt.Println(p, "*CPU INFO*", r)
 	fmt.Printf("Model : %v%v%v\nCores : %v%v%v\n", g, cpudict.ModelName, r, g, cpudict.Cores, r)
 }

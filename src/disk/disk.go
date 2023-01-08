@@ -21,7 +21,7 @@ func Disk() {
 	used := float64(diskinfo.Used)
 	free := float64(diskinfo.Free)
 
-	fmt.Println(p, "DISK INFO ", r)
+	fmt.Println(p, "*DISK INFO*", r)
 	fmt.Println("Type : ", g, fstype, r)
 	fmt.Println("Total :", g, utils.ConvByte(total), r)
 	fmt.Println("Used :", g, utils.ConvByte(used), r)
