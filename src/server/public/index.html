@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="fqdn">&nbsp;</div>
+    <div id="uptime">&nbsp;</div>
+    <div class="module nograph">
+      <div class="title">Responses/errors</div>
+      <div class="value" id="requests"></div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Latency</div>
+      <div class="value" id="latency"></div>
+      <div class="graph">
+        <canvas id="c_latency" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">CPU</div>
+      <div class="value" id="cpuusage"></div>
+      <div class="graph">
+        <canvas id="c_cpuusage" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">RAM</div>
+      <div class="value" id="ramusage"></div>
+      <div class="graph">
+        <canvas id="c_ramusage" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module twovalues">
+      <div class="title">Disk reads/writes</div>
+      <div class="value" id="diskr"></div>
+      <div class="value" id="diskw"></div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Disk read</div>
+      <div class="value" id="diskrs"></div>
+      <div class="graph">
+        <canvas id="c_diskrs" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Disk write</div>
+      <div class="value" id="diskws"></div>
+      <div class="graph">
+        <canvas id="c_diskws" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module twovalues">
+      <div class="title">Disk used/total</div>
+      <div class="value" id="disku"></div>
+      <div class="value" id="diskt"></div>
+    </div>
+    <div class="module twovalues">
+      <div class="title">Network TX/RX</div>
+      <div class="value" id="nett"></div>
+      <div class="value" id="netr"></div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Net TX</div>
+      <div class="value" id="netts"></div>
+      <div class="graph">
+        <canvas id="c_netts" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Net RX</div>
+      <div class="value" id="netrs"></div>
+      <div class="graph">
+        <canvas id="c_netrs" width="240" height="96"> </canvas>
+      </div>
+    </div>
+    <div class="module yesgraph">
+      <div class="title">Swap</div>
+      <div class="value" id="swapusage"></div>
+      <div class="graph">
+        <canvas id="c_swapusage" width="240" height="96"></canvas>
+      </div>
+    </div>
+    <script src="jquery-3.6.3.min.js"></script>
+    <script src="smoothie.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

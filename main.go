@@ -3,22 +3,25 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"proc-top/colors"
-	cpu "proc-top/src/cpu"
-	disk "proc-top/src/disk"
 	"proc-top/src/host"
-	memory "proc-top/src/memory"
 	"proc-top/utils"
 	"runtime"
 	"strings"
 	"time"
+
+	cpu "proc-top/src/cpu"
+	disk "proc-top/src/disk"
+	memory "proc-top/src/memory"
+	procserver "proc-top/src/server"
 )
 
 var (
 	name     = "ProcTop"
-	version  = "0.5.0"
+	version  = "0.6.0"
 	build    = "Custom"
-	codename = "ProcTop , CLI monitor tool."
+	codename = "ProcTop , System monitor tool."
 )
 
 var (
@@ -28,16 +31,16 @@ var (
 
 const (
 	banner = `     
-============================================
-| ______                 _____             |
-| | ___ \               |_   _|            |
-| | |_/ / __ ___   ___    | | ___  _ __    |
-| |  __/ '__/ _ \ / __|   | |/ _ \| '_ \   |
-| | |  | | | (_) | (__    | | (_) | |_) |  |
-| \_|  |_|  \___/ \___|   \_/\___/| .__/   |
-|                                 | |      |
-|                                 |_|      |
-============================================
+
+  ______                 _____             
+  | ___ \               |_   _|            
+  | |_/ / __ ___   ___    | | ___  _ __    
+  |  __/ '__/ _ \ / __|   | |/ _ \| '_ \   
+  | |  | | | (_) | (__    | | (_) | |_) |  
+  \_|  |_|  \___/ \___|   \_/\___/| .__/   
+                                  | |      
+                                  |_|      
+
 `
 )
 
@@ -58,27 +61,26 @@ func VersionStatement() string {
 }
 
 func main() {
-	// flags declaration using flag package
+	server := flag.Bool("server", false, "start web mode (default mode)")
+	cli := flag.Bool("cli", false, "start cli mode")
 	interval := flag.Int("interval", 1, "refresh screen per second")
-	full := flag.Bool("full", false, "Show all information")
-	kernel := flag.Bool("kernel", true, "Show kernel info & uptime")
-	memoryflag := flag.Bool("memory", false, "Show memory usage")
-	swapflag := flag.Bool("swap", false, "Show swap usage")
-	loadaverageflag := flag.Bool("load", false, "Show load average")
-	sensorsflag := flag.Bool("sensors", false, "Show sensors")
-	cpuflag := flag.Bool("cpu", true, "Show Cpu info")
-	diskflag := flag.Bool("disk", false, "Show disk usage")
+	port := flag.Int("port", 8080, "webserver port. ")
 	versionflag := flag.Bool("version", false, "Show version & exit")
 
 	flag.Parse()
-	for {
-		utils.CallClear()
+
+	if *versionflag {
+		fmt.Println(name, version)
+		os.Exit(0)
+	}
+	if *server {
 		Header()
-		if *versionflag {
-			fmt.Println(name, version)
-			break
-		}
-		if *full {
+		procserver.Start(*port)
+
+	} else if *cli {
+		for {
+			utils.CallClear()
+			Header()
 			host.KernelInfo()
 			memory.Memory()
 			memory.Swap()
@@ -86,29 +88,11 @@ func main() {
 			host.Sensors()
 			host.Loadaverage()
 			disk.Disk()
-		} else {
-			if *memoryflag {
-				memory.Memory()
-			}
-			if *swapflag {
-				memory.Swap()
-			}
-			if *kernel {
-				host.KernelInfo()
-			}
-			if *sensorsflag {
-				host.Sensors()
-			}
-			if *loadaverageflag {
-				host.Loadaverage()
-			}
-			if *cpuflag {
-				cpu.Cpu()
-			}
-			if *diskflag {
-				disk.Disk()
-			}
+			time.Sleep(time.Duration(*interval) * time.Second)
+
 		}
-		time.Sleep(time.Duration(*interval) * time.Second)
+	} else {
+		Header()
+		procserver.Start(*port)
 	}
 }

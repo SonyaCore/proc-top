@@ -1,0 +1,63 @@
+body {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  background: #1b1a1a;
+  color: #c0c0c0;
+  font-family: monospace;
+}
+.module {
+  display: inline-block;
+  width: 16rem;
+  height: 8rem;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  vertical-align: top;
+  outline: 1px solid #343333;
+  font-size: 0.75em;
+}
+.module .graph {
+  clear: both;
+  padding-top: 0.25rem;
+  text-align: center;
+  position: relative;
+}
+.module .value {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.module.nograph .title {
+  text-align: center;
+}
+.module.nograph .value {
+  text-align: center;
+  padding-top: 0.5em;
+  font-size: 2em;
+}
+.module.yesgraph .title {
+  float: left;
+}
+.module.yesgraph .value {
+  float: right;
+}
+.module.twovalues .title {
+  text-align: center;
+}
+.module.twovalues .value {
+  text-align: center;
+  padding-top: 0.25rem;
+  font-size: 1rem;
+}
+
+#fqdn,
+#uptime {
+  text-align: center;
+  font-size: 2em;
+  padding: 0.25em;
+}
+#uptime {
+  font-family: monospace;
+  padding-top: 0;
+  padding-bottom: 2%;
+}

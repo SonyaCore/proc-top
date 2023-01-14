@@ -11,16 +11,19 @@
 ### Simple cli system monitor written in Go
 
 ![Sample](contents/tittle.png)
+![SampleWeb](contents/webscreen.png)
 
 ## Description
 
-ProcTop is a cli monitoring tool for watching system information (ram , cpu , disk , avg and ..)
+ProcTop is a System monitoring tool for watching system information (ram , cpu , disk , avg and ..)
 
-It's using a time interval for refreshing detail and its helpful for benchmarking and seeing the status of the system
+On cmd mode it uses a time interval for refreshing detail and its helpful for benchmarking and seeing the status of the system
+
+for webserver mode, you can pass port argument to set your own port. by default the port is 8080
 
 ## Requirements
 
-- go1.19 or above is required.
+- go1.18 or above is required.
 
 ## Build
 
@@ -34,27 +37,15 @@ go build .
 
 `proc-top` arguments
 
-> To view full information use -full in proc-top binary
-
 ```
-  -cpu
-    	Show Cpu info (default true)
-  -disk
-    	Show disk usage
-  -full
-    	Show all information
+  -cli
+    	start cli mode
   -interval int
     	refresh screen per second (default 1)
-  -kernel
-    	Show kernel info & uptime (default true)
-  -load
-    	Show load average
-  -memory
-    	Show memory usage
-  -sensors
-    	Show sensors
-  -swap
-    	Show swap usage
+  -port int
+    	webserver port.  (default 8080)
+  -server
+    	start web mode (default mode)
   -version
     	Show version & exit
 ```
@@ -71,7 +62,7 @@ Licensed under the [GPL-3][license] license.
 [stars-url]: https://github.com/SonyaCore/proc-top/stargazers
 [issues-shield]: https://img.shields.io/github/issues/SonyaCore/proc-top?style=flat
 [issues-url]: https://github.com/SonyaCore/proc-top/issues
-[version]: https://img.shields.io/badge/Version-0.4-blue
 [goversion]: https://img.shields.io/github/go-mod/go-version/SonyaCore/proc-top/master
 [go]: https://img.shields.io/badge/Go-cyan?logo=go
+[version]: https://img.shields.io/badge/Version-0.6-blue
 [license]: LICENSE
