@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
@@ -41,6 +41,15 @@ func getFileSystem(OSDir string) http.FileSystem {
 func Start(port int) {
 	go update()
 
+	cors := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"POST", "GET", "OPTIONS", "PUT", "DELETE"},
+		AllowedHeaders:   []string{"*"},
+		AllowOriginFunc:  func(origin string) bool { return true },
+		AllowCredentials: true,
+		Debug:            false,
+	})
+
 	router := mux.NewRouter()
 
 	router.HandleFunc("/raw", func(w http.ResponseWriter, r *http.Request) {
@@ -57,8 +66,13 @@ func Start(port int) {
 	router.PathPrefix("/").Handler(http.FileServer(getFileSystem(OSDir)))
 
 	PORT := port
+	handler := cors.Handler(router)
 	fmt.Println("Listening on port", PORT)
-	http.ListenAndServe(":"+strconv.Itoa(PORT), handlers.CORS()(router))
+
+	err := http.ListenAndServe(":"+strconv.Itoa(PORT), handler)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 var stats = make(map[string]interface{})

@@ -64,5 +64,5 @@ Licensed under the [GPL-3][license] license.
 [issues-url]: https://github.com/SonyaCore/proc-top/issues
 [goversion]: https://img.shields.io/github/go-mod/go-version/SonyaCore/proc-top/master
 [go]: https://img.shields.io/badge/Go-cyan?logo=go
-[version]: https://img.shields.io/badge/Version-0.6-blue
+[version]: https://img.shields.io/badge/Version-0.7-blue
 [license]: LICENSE
