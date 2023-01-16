@@ -3,8 +3,8 @@ package disk
 import (
 	"fmt"
 	"log"
-	"proc-top/colors"
 	"proc-top/utils"
+	"proc-top/utils/colors"
 
 	"github.com/shirou/gopsutil/v3/disk"
 )

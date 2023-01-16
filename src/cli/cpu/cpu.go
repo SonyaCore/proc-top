@@ -3,7 +3,7 @@ package cpu
 import (
 	"fmt"
 	"log"
-	"proc-top/colors"
+	"proc-top/utils/colors"
 
 	"github.com/shirou/gopsutil/v3/cpu"
 )

@@ -61,3 +61,37 @@ body {
   padding-top: 0;
   padding-bottom: 2%;
 }
+.footer {
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-decoration: none;
+  min-height: 2.1em;
+  height: 2.1em;
+  background-color: rgb(44, 41, 41);
+  color: white;
+  text-align: center;
+  border-top: 3px solid rgb(54, 54, 57);
+  justify-content: space-between;
+}
+.kernelinfo {
+  padding-right: 30px;
+  font-size: 1em;
+  margin-top: 0.5em;
+  float: right;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}
+.avg {
+  font-size: 1em;
+  margin-top: 0.5em;
+  text-align: left;
+  padding-left: 30px;
+  float: left;
+  word-spacing: 2px;
+  margin-bottom: 0.5em;
+}
