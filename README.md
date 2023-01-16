@@ -21,6 +21,10 @@ On cmd mode it uses a time interval for refreshing detail and its helpful for be
 
 for webserver mode, you can pass port argument to set your own port. by default the port is 8080
 
+## Releases
+
+go to the releases page to download the right binary for your distribution
+
 ## Requirements
 
 - go1.18 or above is required.
@@ -64,5 +68,5 @@ Licensed under the [GPL-3][license] license.
 [issues-url]: https://github.com/SonyaCore/proc-top/issues
 [goversion]: https://img.shields.io/github/go-mod/go-version/SonyaCore/proc-top/master
 [go]: https://img.shields.io/badge/Go-cyan?logo=go
-[version]: https://img.shields.io/badge/Version-0.7-blue
+[version]: https://img.shields.io/badge/Version-0.8-blue
 [license]: LICENSE
