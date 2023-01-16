@@ -23,7 +23,7 @@ for webserver mode, you can pass port argument to set your own port. by default 
 
 ## Releases
 
-go to the releases page to download the right binary for your distribution
+go to the releases page to download the right binary for your Operating system
 
 ## Requirements
 
