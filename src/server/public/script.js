@@ -81,6 +81,12 @@
     $("#swapusage").text(util.bytes(n[1]));
     g.swapusage.t.append(+new Date(), n[3]);
   };
+  handler.kernel = function (s) {
+    $("#kernel").text(s);
+  };
+  handler.loadaverage = function (s) {
+    $("#loadaverage").text(s);
+  };
   var count = 0,
     errors = 0;
   var latency = 0;
