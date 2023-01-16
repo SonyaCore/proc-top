@@ -16,6 +16,7 @@ import (
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/disk"
 	"github.com/shirou/gopsutil/host"
+	"github.com/shirou/gopsutil/load"
 	"github.com/shirou/gopsutil/mem"
 	"github.com/shirou/gopsutil/net"
 )
@@ -78,6 +79,12 @@ func Start(port int) {
 var stats = make(map[string]interface{})
 
 func update() {
+	platfrom, _, _, _ := host.PlatformInformation()
+	kernel_version, _ := host.KernelVersion()
+	kernel_arch, _ := host.KernelArch()
+	platfrominfo := fmt.Sprintf("%v %v %v", platfrom, kernel_version, kernel_arch)
+
+	stats["kernel"] = platfrominfo
 	for {
 		diskused := uint64(0)
 		disktotal := uint64(0)
@@ -95,6 +102,8 @@ func update() {
 		nio, _ := net.IOCounters(false)
 		niodict := nio[0]
 		swap, _ := mem.SwapMemory()
+		load, _ := load.Avg()
+		loadstatus := fmt.Sprintf("%.2f %.2f %.2f", load.Load1, load.Load5, load.Load15)
 
 		stats["uptime"] = uptime
 		stats["fqdn"], _ = os.Hostname()
@@ -113,6 +122,7 @@ func update() {
 		stats["swapusage"] = [6]uint64{swap.Total, swap.Used,
 			swap.Free, uint64(swap.UsedPercent),
 			swap.Sin, swap.Sout}
+		stats["loadaverage"] = loadstatus
 		time.Sleep(1 * time.Second)
 	}
 }
