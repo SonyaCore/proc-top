@@ -8,7 +8,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-### Simple cli system monitor written in Go
+### Simple System monitor written in Go
 
 ![Sample](contents/tittle.png)
 ![SampleWeb](contents/webscreen.png)
@@ -38,6 +38,8 @@ go build .
 ```
 
 ## Usage
+
+ProcTop by default runs web server mode, for running cli mode pass the -cli to the program
 
 `proc-top` arguments
 

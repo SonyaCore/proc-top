@@ -3,7 +3,7 @@ package host
 import (
 	"fmt"
 	"log"
-	"proc-top/colors"
+	"proc-top/utils/colors"
 	"strconv"
 
 	"github.com/shirou/gopsutil/load"

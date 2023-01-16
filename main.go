@@ -4,16 +4,16 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"proc-top/colors"
-	"proc-top/src/host"
+	"proc-top/src/cli/host"
 	"proc-top/utils"
+	"proc-top/utils/colors"
 	"runtime"
 	"strings"
 	"time"
 
-	cpu "proc-top/src/cpu"
-	disk "proc-top/src/disk"
-	memory "proc-top/src/memory"
+	cpu "proc-top/src/cli/cpu"
+	disk "proc-top/src/cli/disk"
+	memory "proc-top/src/cli/memory"
 	procserver "proc-top/src/server"
 )
 

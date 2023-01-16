@@ -3,7 +3,7 @@ package proc
 import (
 	"fmt"
 	"log"
-	"proc-top/colors"
+	"proc-top/utils/colors"
 
 	"github.com/shirou/gopsutil/v3/process"
 )
@@ -11,7 +11,6 @@ import (
 var (
 	g = colors.Green
 	r = colors.Reset
-	p = colors.Purple
 )
 
 func Proc() {
